@@ -107,15 +107,6 @@ if __name__ == '__main__':
    import copy
    line = copy.deepcopy(line_1)
    ```
-   
-	于是修改代码，有
-    	```python3
-    	import copy
-	line = copy.deepcopy(line_1)
 
-	print(line_1)
-	print(line)
-	print(len(line[i]))
-```
-
+	5. 参考链接：<https://blog.csdn.net/weixin_42042056/article/details/106738462?depth_1->
 
