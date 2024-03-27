@@ -126,8 +126,8 @@ if __name__ == '__main__':
 
 3. 写对手riv时注意数组的index和本身骑士个数的区别，涉及到i+1和i-1
 4. 严重影响正确率的代码是最后的输出部分。
-   * 原错误代码：
-   ```python3
+	* 原错误代码：
+```python3
 flag = 1
 for i in range(n):      # 判断是否所有人都完成了比赛
    	if len(line[i]) > 0:
@@ -137,7 +137,8 @@ if flag:
 else:
 	print("-1")
 ```
-   * 修正后代码：
+
+	* 修正后代码：
  	```python3
  	# 判断是否所有人都完成了比赛
  	for i in range(n):
