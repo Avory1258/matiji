@@ -141,12 +141,12 @@ else:
 	* 修正后代码：
  
 ```python3
-# 判断是否所有人都完成了比赛
+#判断是否所有人都完成了比赛
 for i in range(n):
 if len(line[i]) > 0:
 	print("-1")
 	return
-print(days)  # 所有挑战都完成了
+print(days)  #所有挑战都完成了
 ```
 
 	* 有一说一还是没弄懂之前写的哪里不行
