@@ -87,11 +87,32 @@ if __name__ == '__main__':
 	line_1 = [[2, 3], [1, 3], [1, 2]]
 	print(line_1)
 	line = line_1
+ 	print(line)
 	for i in range(n):  # 记录比赛要求
-    	line_1[i] = [j+1 for j in line_1[i]]     # 将数组中的每一行化为整型
+    		line_1[i] = [j+1 for j in line_1[i]]     # 将数组中的每一行化为整型
 	print(line_1)
 	print(line)
 	```
-	
+	输出为：
+	```python3
+ 	[[2, 3], [1, 3], [1, 2]]
+ 	[[2, 3], [1, 3], [1, 2]]
+	[[3, 4], [2, 4], [2, 3]]
+	[[3, 4], [2, 4], [2, 3]]
+	```
+ 		* 当你执行了 line = line_1 这行代码时，你并没有创建 line_1 的一个新的拷贝，而是让 line 指向了和 line_1 相同的对象。在 Python 中，变量是对对象的引用。所以，当你修改 line_1 的内容时，因为 line 和 line_1 指向的是同一个对象，你也就看到了 line 的内容随之改变。如果你想要 line 和 line_1 指向不同的对象，你需要创建 line_1 的一个拷贝。对于二维数组（或更深层的嵌套数组），你需要执行一个“深拷贝”（deep copy），因为二维数组是一个由数组组成的数组，仅仅复制最外层是不够的（这称为“浅拷贝”（shallow copy））。在 Python 中，你可以使用 copy 模块的 deepcopy 函数来实现深拷贝：
+   	```python3
+    	import copy
+	line = copy.deepcopy(line_1)
+    	```
+	于是修改代码，有
+    	```python3
+    	import copy
+	line = copy.deepcopy(line_1)
+
+	print(line_1)
+	print(line)
+	print(len(line[i]))
+```
 
 
