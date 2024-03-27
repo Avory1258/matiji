@@ -112,7 +112,7 @@ if __name__ == '__main__':
 
 2. 在创建数组时，需要注意的是input的是字符串，因此需要用到`int()`
 	1. 获取整数n时，`n = int(input())`
-    	2. 获取二维数组时：
+	2. 获取二维数组时：
         ```python3
         line = [[0 for _ in range(n-1)] for _ in range(n)]    # 初始化二维数组
         for i in range(n):  # 记录比赛要求
