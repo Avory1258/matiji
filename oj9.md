@@ -110,3 +110,13 @@ if __name__ == '__main__':
 
 	5. 参考链接：<https://blog.csdn.net/weixin_42042056/article/details/106738462?depth_1->
 
+2. 在创建数组时，需要注意的是input的是字符串，因此需要用到`int()`
+	1. 获取整数n时，`n = int(input())`
+    	2. 获取二维数组时：
+        ```python3
+        line = [[0 for _ in range(n-1)] for _ in range(n)]    # 初始化二维数组
+        for i in range(n):  # 记录比赛要求
+        	line[i] = input().split(" ")    # 同行数字用空格隔开
+        	line[i] = [int(j) for j in line[i]]     # 将数组中的每一行化为整型【重要！使用列表推导式化为整型】
+        ```
+        如果没有最后一句，line的结果将是`[['2', '3'], ['1', '3'], ['1', '2']]`，加上最后一句后便是`[[2, 3], [1, 3], [1, 2]]`
