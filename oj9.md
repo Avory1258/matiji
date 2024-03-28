@@ -162,11 +162,11 @@ if __name__ == '__main__':
 --- 
 
 ##### 代码描述
-	```python3
+```python3
  def operate1(num, n, x, y):
     # 直接计算需要增加y的索引，然后增加y
     for i in range(x - 1, n, x):
-        num[i] += y
+    	num[i] += y
     return num
 
 def operate2(num, n, i):
@@ -192,8 +192,8 @@ def main():
 
 if __name__ == '__main__':
     main();
-	```
+```
 
  --- 
 
- ##### 补充知识但及注意点
+ ##### 补充知识及注意点
