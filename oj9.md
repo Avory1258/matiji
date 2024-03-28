@@ -197,3 +197,19 @@ if __name__ == '__main__':
  --- 
 
  ##### 补充知识及注意点
+1. 第一次提交，对于一半的用例代码超时，提交chatgpt修改之后发现是因为operate1函数中的循环效率不高。每次调用operate1时，它都会遍历整个nums列表，这在列表很长且需要多次执行该操作时会非常耗时。改进的方法是减少不必要的遍历，尽可能利用数学方法来优化操作。第一次提交代码时的operate1函数如下
+   ```python3
+   def operate1(num, n, x, y):
+   	for i in range(n):
+   	if (i + 1) % x == 0:
+   		num[i] += y
+   	return num
+   ```
+   改进后的代码为：
+   ```python3
+   def operate1(num, n, x, y):
+   	for i in range(x - 1, n, y):
+   		num[i] += y
+   	return num
+   ```
+   优化后的代码利用了范围和步长直接跳过了不需要修改的元素，大大减少了循环次数。优化前的时间复杂度为O(n)，优化后的为O(n/x)，当x相对于n较大时性能提升更为明显。同时暴露了一个问题是对于range()函数的使用方法不太熟悉。
