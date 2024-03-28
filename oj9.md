@@ -1,4 +1,4 @@
-# oj赛第九周|MT3011骑士锦标赛、2.序列加法、3.剪纸、4.构造原理、5.小码妹排序
+# oj赛第九周|MT3011骑士锦标赛、MT3012序列加法、3.剪纸、4.构造原理、5.小码妹排序
 
 ### 1. MT3011 骑士锦标赛
 
@@ -150,3 +150,50 @@ if __name__ == '__main__':
 	```
 
 	* 有一说一还是没弄懂之前写的哪里不行
+
+--- 
+
+### 2. MT3012 序列加法
+
+##### 题目链接：<https://www.matiji.net/exam/dohomework/5983/2>
+
+* 小码哥有一个由n个数构成的序列 a1，a2，a3，…，现在他想要对这个序列进行两个操作:1.1xy，把所有下标是x的倍数的数加上y;2.2i，输出 ai 。
+
+--- 
+
+##### 代码描述
+	```python3
+ def operate1(num, n, x, y):
+    # 直接计算需要增加y的索引，然后增加y
+    for i in range(x - 1, n, x):
+        num[i] += y
+    return num
+
+def operate2(num, n, i):
+    print(num[i - 1])
+
+
+def main():
+    n, m = input().split()
+    n = int(n)
+    m = int(m)
+    nums = [int(num) for num in input().split()]
+
+    for j in range(m):
+        line = [int(num) for num in input().split()]
+
+        if line[0] == 1:
+            x, y = line[1], line[2]
+            nums = operate1(nums, n, x, y)
+        else:
+            i = line[1]
+            operate2(nums, n, i)
+
+
+if __name__ == '__main__':
+    main();
+	```
+
+ --- 
+
+ ##### 补充知识但及注意点
