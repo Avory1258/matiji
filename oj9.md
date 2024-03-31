@@ -292,3 +292,58 @@ if __name__ == '__main__':
    * chars不指定时默认去除空格、制表符\t、回车符\r、换行符\n等
    * lstrip()方法用于去除字符串左侧的空格和特殊字符，语法格式为`str.lstrip([chars])`
    * rstrip()方法用于去除字符串右侧的空格和特殊字符，语法格式为`str.rstrip([chars])`
+
+--- 
+
+### 5. MT3014 小码妹排队
+##### 题目链接：<https://www.matiji.net/exam/dohomework/5983/5>
+* 小码妹们排成了一个 10^5 x 10^5 的队伍，所有的小码妹只有两种状态: 戴着眼镜和不戴着眼镜，现在你可以进行任意多的一些操作，一次操作你可以选择一个大小为 k x 1或 1 x k 的连续子矩阵。对这个子矩阵的所有小码妹进行一次状态的改变(即戴眼镜变成不戴眼镜，不戴眼镜变成戴眼镜)。为了美，希望所有的小码妹都不戴眼镜，问你可不可以在有限次操作内使得所有的小码妹都不戴眼镜。
+
+--- 
+
+##### 代码描述
+``` python3
+
+def main():
+    n, k = input().split()
+    n = int(n)
+    k = int(k)
+    matrix = [[0 for _ in range(1000)] for _ in range(1000)]
+    for i in range(n):
+        x, y = input().split()
+        x = int(x) - 1
+        y = int(y) - 1
+        x = x % k    # 将戴眼镜的坐标(x,y)映射到k阶方阵中
+        y = y % k
+        matrix[x][y] = int(not matrix[x][y])    # 取反，注意要转换int()，否则得到的是布尔值False和True
+        # matrix[x][y] = 1 - matrix[x][y]       # 这样取反也可以
+    
+    # 在k阶方阵中，第0行和第0列全部置0
+    for i in range(k):
+        if matrix[i][0]:
+            for j in range(k):
+                matrix[i][j] = int(not matrix[i][j])
+    for j in range(k):
+        if matrix[0][j]:
+            for i in range(k):
+                matrix[i][j] = int(not matrix[i][j])
+    
+    # 检查方阵k中所有元素是否全部为0
+    for i in range(k):
+        for j in range(k):
+            if matrix[i][j]:
+                flag = 1
+                print("NO")
+                return
+    print("YES")
+
+if __name__ == '__main__':
+    main();
+```
+
+--- 
+
+##### 补充知识及注意点
+1. 注意到 10^5 x 10^5 的矩阵太大了，因此要缩小到一个更小的矩阵中进行处理
+2. 对于一个 k x k 的矩阵进行 1 x k 或 k x 1的取反操作，令第一行和第一列所有元素全部置0后则无法进行任何操作了，因此此时如果矩阵如果仍存在元素0，则无法将整个矩阵化为全0矩阵或全1矩阵
+3. `not`进行取反
