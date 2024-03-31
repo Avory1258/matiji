@@ -290,3 +290,5 @@ if __name__ == '__main__':
 3. strip()方法
    * strip()方法用于去除字符串左右两侧的空格和特殊字符，语法格式为`str.strip([chars])`
    * chars不指定时默认去除空格、制表符\t、回车符\r、换行符\n等
+   * lstrip()方法用于去除字符串左侧的空格和特殊字符，语法格式为`str.lstrip([chars])`
+   * rstrip()方法用于去除字符串右侧的空格和特殊字符，语法格式为`str.rstrip([chars])`
